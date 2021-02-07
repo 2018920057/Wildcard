@@ -3,8 +3,9 @@ use std::io;
 fn main() {
   loop{
   let mut a: String = String::new();
-  println!("매치할 패턴:");
+  println!("매치할 패턴(exit:종료):");
   io::stdin().read_line(&mut a).expect("error");
+  if a.trim() == "exit" {break;}
   let mut b: String = String::new();
   println!("매치할 문자:");
   io::stdin().read_line(&mut b).expect("error");
@@ -12,6 +13,7 @@ fn main() {
   }
 }
 
+//패턴에 문자열을 매치하는 함수
 fn matchString(a: &str,b: &str) -> bool{
   let alen: usize = a.len();
   let blen: usize = b.len();
@@ -32,3 +34,4 @@ fn matchString(a: &str,b: &str) -> bool{
   }
   false
 }
+
